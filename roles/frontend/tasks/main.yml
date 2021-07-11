@@ -1,5 +1,9 @@
-- name: installing nginx
-  become: yes
+- name: setting up epel repo
+  yum:
+    name: epel-release
+    state: present
+
+- name:  installing nginx
   yum:
     name: nginx
     state: present
