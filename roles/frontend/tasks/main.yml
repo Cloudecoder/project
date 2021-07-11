@@ -1,2 +1,2 @@
 - name: setting up nginx
-  shell: yum install nginx -y | bash
+  shell: yum install nginx -y
