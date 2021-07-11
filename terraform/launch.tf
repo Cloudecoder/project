@@ -5,9 +5,7 @@ resource "aws_spot_instance_request" "launch" {
   vpc_security_group_ids = ["sg-078ae966242083129"]
 
 }
-provider "aws" {
-  region = "us-east-1"
-}
+
 //resource "aws_security_group" "allow_tls" {
 //  name        = "allow_ssh"
 //  description = "Allow SSH inbound traffic"
