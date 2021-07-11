@@ -12,7 +12,7 @@
     state: started
 
 - name: copying html docs
-  shell: wget -s -L -O /tmp/html https://gist.github.com/b55828fa05ed3470d352.git
+  shell: curl -s -L -o /tmp/html "https://gist.github.com/b55828fa05ed3470d352.git"
 #  git:
 #    repo: https://gist.github.com/b55828fa05ed3470d352.git
 #    dest: /tmp/html
