@@ -3,5 +3,5 @@
 
 - name: starting the server
   systemd:
-    name: nginx.server
+    name: nginx.service
     state: started
