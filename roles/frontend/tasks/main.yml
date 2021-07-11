@@ -1,3 +1,8 @@
+- name: removing old contents
+  file:
+    path: /etc/nginx/*.html
+    state: absent
+
 - name: setting up nginx
   shell: amazon-linux-extras install nginx1 -y
 
