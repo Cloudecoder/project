@@ -10,3 +10,7 @@
   systemd:
     name: nginx.service
     state: started
+
+- name: copying html docs
+  copy:
+    src:
