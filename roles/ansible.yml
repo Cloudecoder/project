@@ -1,6 +1,6 @@
 - name: installing nginx
   hosts: webserver
-  become_user: ec2-user
+  become: yes
   roles:
     - name: install
       role: frontend
