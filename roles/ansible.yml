@@ -1,0 +1,6 @@
+- name: installing nginx
+  hosts: webserver
+  become: yes
+  roles:
+    - name: install
+      role: frontend
