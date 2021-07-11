@@ -15,4 +15,4 @@
   git:
     repo: https://gist.github.com/b55828fa05ed3470d352.git
     dest: /tmp
-    remote_src: yes
+
