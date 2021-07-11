@@ -42,3 +42,6 @@ resource "aws_spot_instance_request" "launch" {
 //  }
 //}
 
+provider "aws" {
+  region = "us-east-1"
+}
