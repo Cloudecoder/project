@@ -39,6 +39,7 @@ resource "aws_security_group" "allow_tls" {
     Name = "allow_ssh"
   }
 }
+
 provider "aws" {
   region = "us-east-1"
 }
