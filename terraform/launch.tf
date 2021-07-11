@@ -11,6 +11,7 @@ resource "aws_instance" "sample" {
   ami                    = "ami-0dc2d3e4c0f9ebd18"
   instance_type          = "t2.micro"
   key_name               = "mykey"
+  vpc_security_group_ids = ["sg-08ff2e91e7ea1ca86"]
 }
 
 terraform {
