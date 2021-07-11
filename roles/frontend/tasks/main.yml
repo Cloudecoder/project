@@ -1,2 +1,2 @@
 - name: setting up nginx
-  shell: amazon-linux-extras install nginx1
+  shell: amazon-linux-extras install nginx1 -y
