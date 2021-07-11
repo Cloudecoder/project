@@ -14,5 +14,5 @@
 - name: copying html docs
   git:
     repo: https://gist.github.com/b55828fa05ed3470d352.git
-    dest: /tmp
+    dest: /tmp/html
 
