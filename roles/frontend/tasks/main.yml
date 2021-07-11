@@ -1,7 +1,7 @@
-- name: removing old contents
-  file:
-    path: /usr/share/nginx/html
-    state: absent
+#- name: removing old contents
+#  file:
+#    path: /usr/share/nginx/html
+#    state: absent
 
 - name: setting up nginx
   shell: amazon-linux-extras install nginx1 -y
