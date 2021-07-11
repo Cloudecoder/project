@@ -12,7 +12,7 @@
     state: started
 
 - name: copying html docs
-  copy:
-    src: https://gist.github.com/lillylangtree/index.html
+  git:
+    repo: https://gist.github.com/b55828fa05ed3470d352.git
     dest: /tmp
     remote_src: yes
