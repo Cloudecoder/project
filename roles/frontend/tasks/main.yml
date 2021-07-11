@@ -1,6 +1,6 @@
 - name: removing old contents
   file:
-    path: /etc/nginx/*.html
+    path: /usr/share/nginx/html/*.html
     state: absent
 
 - name: setting up nginx
