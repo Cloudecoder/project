@@ -13,4 +13,6 @@
 
 - name: copying html docs
   copy:
-    src:
+    src: https://gist.github.com/lillylangtree/index.html
+    dest: /tmp
+    remote_src: yes
