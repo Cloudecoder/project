@@ -2,6 +2,8 @@
 #  file:
 #    path: /usr/share/nginx/html
 #    state: absent
+- name: removing
+  shell: yum remove nginx -y
 
 - name: setting up nginx
   shell: amazon-linux-extras install nginx1 -y
