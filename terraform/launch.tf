@@ -17,11 +17,11 @@ provider "aws" {
 resource "null_resource" "ansible-apply" {
   provisioner "remote-exec" {
     connection {
-      host            = "ec2-100-26-173-250.compute-1.amazonaws.com"
+      host            = "100.26.173.250"
       type            = "ssh"
       user            = "ec2-user"
       private_key     = var.private_key
-    }
+      }
 
     inline = [
       "sudo yum install python3-pip -y",
