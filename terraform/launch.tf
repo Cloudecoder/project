@@ -17,7 +17,7 @@ provider "aws" {
 //resource "null_resource" "ansible-apply" {
 //   provisioner "remote-exec" {
 //    connection {
-//      host            = "${element(var.COMPONENTS, count.index)}.roboshop.internal"
+//      host            = ""
 //      user            = "centos"
 //      password        = "DevOps321"
 //    }
