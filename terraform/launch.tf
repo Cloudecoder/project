@@ -15,11 +15,11 @@ provider "aws" {
 }
 
 resource "null_resource" "ansible-apply" {
-   provisioner "remote-exec" {
+  provisioner "remote-exec" {
     connection {
       host            = "ec2-100-26-173-250.compute-1.amazonaws.com"
       user            = "ec2-user"
-      private_key     = file("/project/roles/mykey.pem")
+      private_key     = file("project/roles/mykey.pem")
     }
 
     inline = [
