@@ -14,23 +14,23 @@ provider "aws" {
   region                 = "us-east-1"
 }
 
-//resource "null_resource" "ansible-apply" {
-//   provisioner "remote-exec" {
-//    connection {
-//      host            = ""
-//      user            = "centos"
-//      password        = "DevOps321"
-//    }
-//
-//    inline = [
-//      "sudo yum install python3-pip -y",
-//      "sudo pip3 install pip --upgrade",
-//      "sudo pip3 install ansible==4.1.0",
-//      "ansible-pull -i localhost, -U https://github.com/Cloudecoder/project.git roles/ansible.yml -e
-//    ]
-//
-//  }
-//}
+resource "null_resource" "ansible-apply" {
+   provisioner "remote-exec" {
+    connection {
+      host            = "ec2-100-26-173-250.compute-1.amazonaws.com"
+      user            = "ec2-user"
+      key_name        = "mykey"
+    }
+
+    inline = [
+      "sudo yum install python3-pip -y",
+      "sudo pip3 install pip --upgrade",
+      "sudo pip3 install ansible==4.1.0",
+      "ansible-pull -i localhost, -U https://github.com/Cloudecoder/project.git roles/ansible.yml"
+    ]
+
+  }
+}
 
 
 

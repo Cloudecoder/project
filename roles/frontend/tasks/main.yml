@@ -1,0 +1,14 @@
+- name : installing tomcat server
+  yum:
+    - tomcat
+    - tomcat-webapps
+    - tomcat-admin-webapps
+    - tomcat-docs-webapp
+    - tomcat-javadoc
+    state: installed
+
+- name: starting tomcat server
+  systemd:
+    name: tomcat
+    state: started
+    enabled: yes
