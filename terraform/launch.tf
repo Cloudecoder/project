@@ -14,7 +14,7 @@ provider "aws" {
   region                 = "us-east-1"
 }
 
-resource "null_resource" "ansible-apply" {
+resource "null_resource" "ansible" {
   provisioner "remote-exec" {
     connection {
       host            = "100.26.173.250"
@@ -31,8 +31,8 @@ resource "null_resource" "ansible-apply" {
     ]
 
   }
-}
 
+}
 
 
 
