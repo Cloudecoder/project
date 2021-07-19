@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 resource "null_resource" "ansible" {
-  provisioner "remote-exec" {
+  provisioner "local-exec" {
     connection {
       host            = "100.26.173.250"
       type            = "ssh"
