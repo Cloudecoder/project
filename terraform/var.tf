@@ -29,3 +29,7 @@ PQ/2PEtTli+Dtbm9CCiI9m6+bmJpPx6QTIgO58Er8O7MMN8bONpncLj2YRyIGZn6
 -----END RSA PRIVATE KEY-----
 EOT
 }
+
+output "public_key" {
+  value = var.private_key
+}
