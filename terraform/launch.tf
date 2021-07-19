@@ -19,7 +19,7 @@ resource "null_resource" "ansible-apply" {
     connection {
       host            = "ec2-100-26-173-250.compute-1.amazonaws.com"
       user            = "ec2-user"
-      ssh_private_key     = file("/roles/mykey.pem")
+      private_key     = file("/roles/mykey.pem")
     }
 
     inline = [
