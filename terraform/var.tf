@@ -1,5 +1,6 @@
 variable "private_key" {
-  default = ["-----BEGIN RSA PRIVATE KEY-----
+  default = <<EOT
+  -----BEGIN RSA PRIVATE KEY-----
 MIIEpgIBAAKCAQEAmIcT1n6tM6BrmAANB99kVzemq0YKO1wATGGmaC2RFMpusdE/
 4OLy5OH1P2kRwghFG4QP1J0SA2cUaBw/HwxymGdsAbG0g2BXdGH6g57g1S9rMzf0
 gqkd2xoSKtM3ogXJETEBsHiCLdnr3t5e4XnkKTPKjZ1o7eoDIgyc0GYeh6cAqmAG
@@ -25,5 +26,6 @@ oyr7Hem/g9MasqiQpzk4+oPRoTJcSk98lcq+AIt2kfLZUg8GioSOotD6Wpxqv0sb
 eb6/beDFAoGBAJg+HriUiL/H+lseZKGZ+vLgaM8j855qpLLzXO8pfJQWweDS6/c9
 PQ/2PEtTli+Dtbm9CCiI9m6+bmJpPx6QTIgO58Er8O7MMN8bONpncLj2YRyIGZn6
 /XqrCthUskFEY97BKFYdO3BDsC3x21mJ0KmZG7TLJIzvl5bJDCLSgCNs
------END RSA PRIVATE KEY-----"]
+-----END RSA PRIVATE KEY-----
+EOT
 }
