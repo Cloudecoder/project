@@ -14,32 +14,35 @@ provider "aws" {
   region                 = "us-east-1"
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//resource "aws_spot_instance_request" "launch" {
-//  count          = 2
-//  ami            = "ami-0dc2d3e4c0f9ebd18"
-//  instance_type  = "t2.micro"
-//  spot_price     = "0.0116"
-//  vpc_security_group_ids = ["sg-078ae966242083129"]
-//}
+//resource "null_resource" "ansible-apply" {
+//   provisioner "remote-exec" {
+//    connection {
+//      host            = "${element(var.COMPONENTS, count.index)}.roboshop.internal"
+//      user            = "centos"
+//      password        = "DevOps321"
+//    }
 //
-//provider "aws" {
-//  region = "us-east-1"
+//    inline = [
+//      "sudo yum install python3-pip -y",
+//      "sudo pip3 install pip --upgrade",
+//      "sudo pip3 install ansible==4.1.0",
+//      "ansible-pull -i localhost, -U https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps56/_git/ansible roboshop-pull.yml -e COMPONENT=${element(var.COMPONENTS, count.index)}"
+//    ]
+//
+//  }
 //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
