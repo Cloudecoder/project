@@ -6,7 +6,7 @@
     file: /etc/yum.repos.d/mongodb.repo
     gpgcheck: yes
     enabled: yes
-    gpgkey: /etc/yum.repos.d/mongodb.repo
+    gpgkey: https://www.mongodb.org/static/pgp/server-4.2.asc
 
 
 
