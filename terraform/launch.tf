@@ -14,27 +14,27 @@ provider "aws" {
 
 
 
-resource "null_resource" "ansible" {
-  provisioner "remote-exec" {
-    connection {
-      host            = aws_spot_instance_request.ec2.public_ip
-      type            = "ssh"
-      user            = "ec2-user"
-      private_key     = "file(~/terraform/mykey)"
-      }
-
-    inline = [
-      "sudo yum install python3-pip -y",
-      "sudo pip3 install pip --upgrade",
-      "sudo pip3 install ansible==4.1.0",
-      "ansible-pull -i localhost, -U https://github.com/Cloudecoder/project.git//roles/ansible.yml"
-    ]
-
-  }
-
-}
-
-
+//resource "null_resource" "ansible" {
+//  provisioner "remote-exec" {
+//    connection {
+//      host            = aws_spot_instance_request.ec2.public_ip
+//      type            = "ssh"
+//      user            = "ec2-user"
+//      private_key     = "file(~/terraform/mykey)"
+//      }
+//
+//    inline = [
+//      "sudo yum install python3-pip -y",
+//      "sudo pip3 install pip --upgrade",
+//      "sudo pip3 install ansible==4.1.0",
+//      "ansible-pull -i localhost, -U https://github.com/Cloudecoder/project.git//roles/ansible.yml"
+//    ]
+//
+//  }
+//
+//}
+//
+//
 
 
 
