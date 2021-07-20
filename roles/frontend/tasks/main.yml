@@ -1,13 +1,37 @@
-- name: installing tomcat server
+- name: Adding mongoDB repositories
+  yum_repository:
+    name: MongoDB
+    description: EPEL YUM repo
+    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+    gpgcheck: yes
+    enabled: yes
+    gpgkey: https://www.mongodb.org/static/pgp/server-4.2.asc
+    file: mongodb
+
+
+- name: Install MongoDB
   yum:
-    name:
-      - tomcat
-      - tomcat-webapps
+    name: mongodb-org
+    state: present
 
-    state: absent
+- name: Update MongoDB Listen Address
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
 
-#- name: starting tomcat server
-#  systemd:
-#    name: tomcat
-#    state: started
-#    enabled: yes
+
+- name: Start MongoDB service
+  systemd:
+    name: mongod
+    enabled: yes
+    state: started
+
+
+- name: restarted mongodb
+  systemd:
+    name: mongod
+    state: restarted
+
+
+
