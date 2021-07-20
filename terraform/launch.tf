@@ -1,8 +1,10 @@
-resource "aws_instance" "ec2" {
+resource "aws_spot_instance_request" "ec2" {
   ami                    = "ami-0dc2d3e4c0f9ebd18"
   instance_type          = "t2.micro"
+  spot_price             = "0.0035"
   key_name               = "mykey"
   vpc_security_group_ids = ["sg-b63c1eb4"]
+  wait_for_fulfillment = yes
 }
 
 
@@ -15,7 +17,7 @@ provider "aws" {
 resource "null_resource" "ansible" {
   provisioner "remote-exec" {
     connection {
-      host            = aws_instance.ec2.host_id
+      host            = aws_spot_instance_request.ec2.host_id
       type            = "ssh"
       user            = "ec2-user"
       private_key     = local_file.key.filename
