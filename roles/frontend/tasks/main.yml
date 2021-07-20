@@ -4,7 +4,7 @@
 
 - name: Install MongoDB
   yum:
-    name: mongodb-org
+    name: mongodb-org-3.4
     state: present
 
 - name: Update MongoDB Listen Address
