@@ -4,7 +4,7 @@ resource "aws_spot_instance_request" "ec2" {
   spot_price             = "0.0035"
   key_name               = "mykey"
   vpc_security_group_ids = ["sg-b63c1eb4"]
-  wait_for_fulfillment = yes
+  wait_for_fulfillment   = true
 }
 
 
