@@ -1,5 +1,5 @@
 - name: installing tomcat
-  hosts: all
+  hosts: localhost
   become: yes
   roles:
     - name: install
