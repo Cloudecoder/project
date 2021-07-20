@@ -10,9 +10,7 @@ provider "aws" {
   region                 = "us-east-1"
 }
 
-resource "local_file" "key" {
-  filename = "mykey.pem"
-}
+
 
 resource "null_resource" "ansible" {
   provisioner "remote-exec" {
@@ -20,7 +18,7 @@ resource "null_resource" "ansible" {
       host            = aws_instance.ec2.host_id
       type            = "ssh"
       user            = "ec2-user"
-      private_key      = local_file.key
+      private_key     = local_file.key.filename
       }
 
     inline = [

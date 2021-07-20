@@ -1,8 +1,8 @@
-//resource "aws_key_pair" "connect" {
-//  key_name = "mykey.pem"
-//  public_key = file(path.module
-//}
-//
-//output "key_pair" {
-//  value = aws_key_pair.connect.public_key
-//}
+resource "local_file" "key" {
+  filename = "${path.module}/mykey.pem"
+}
+
+
+output "key_pair" {
+  value = local_file.key.filename
+}
