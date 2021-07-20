@@ -30,7 +30,7 @@ resource "aws_key_pair" "generated_key" {
 resource "null_resource" "ansible" {
   provisioner "remote-exec" {
     connection {
-      host            = "100.26.173.250"
+      host            = "54.82.198.76"
       type            = "ssh"
       user            = "ec2-user"
       private_key     = var.key_name
