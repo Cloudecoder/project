@@ -1,18 +1,19 @@
 - name: Adding mongoDB repositories
-  shell: echo '[mongodb-org-4.2]name=MongoDB Repositorybaseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/gpgcheck=1enabled=1gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo | bash
-  become: yes
+  yum_repository:
+    name: MongoDB Repository
+    description: mongodb repo
+    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+    file: /etc/yum.repos.d/mongodb.repo
+    gpgcheck: yes
+    enabled: yes
+    gpgkey: /etc/yum.repos.d/mongodb.repo
+
+
 
 - name: Install MongoDB
   yum:
     name: mongodb-org
     state: present
-
-- name: Update MongoDB Listen Address
-  ansible.builtin.replace:
-    path: /etc/mongod.conf
-    regexp: '127.0.0.1'
-    replace: '0.0.0.0'
-
 
 - name: Start MongoDB service
   systemd:
