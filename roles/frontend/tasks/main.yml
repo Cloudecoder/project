@@ -5,7 +5,8 @@
     - tomcat-admin-webapps
     - tomcat-docs-webapp
     - tomcat-javadoc
-    state: installed
+
+    state: latest
 
 - name: starting tomcat server
   systemd:
