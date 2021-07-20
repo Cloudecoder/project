@@ -5,22 +5,35 @@ resource "aws_instance" "ec2" {
   vpc_security_group_ids = ["sg-b63c1eb4"]
 }
 
-resource "aws_vpc_endpoint" "s3" {
+resource "aws_vpc_endpoint" "ec2" {
   vpc_id       = "vpc-65189718"
-  service_name = "com.amazonaws.us-east-1.s3"
+  service_name = "com.amazonaws.us-east-1.ec2"
 }
 
 provider "aws" {
   region                 = "us-east-1"
 }
 
+variable "key_name" {}
+
+resource "tls_private_key" "example" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "aws_key_pair" "generated_key" {
+  key_name   = var.key_name
+  public_key = tls_private_key.example.public_key_openssh
+}
+
+
 resource "null_resource" "ansible" {
-  provisioner "local-exec" {
+  provisioner "remote-exec" {
     connection {
       host            = "100.26.173.250"
       type            = "ssh"
       user            = "ec2-user"
-      private_key     = var.private_key
+      private_key     = var.key_name
       }
 
     inline = [
