@@ -20,7 +20,7 @@ resource "null_resource" "ansible" {
       host            = aws_spot_instance_request.ec2.public_ip
       type            = "ssh"
       user            = "ec2-user"
-      private_key     = "file(/Users/RYZEN/IdeaProjects/project/roles/mykey.pem)"
+      private_key     = "file(~/terraform/mykey)"
       }
 
     inline = [
