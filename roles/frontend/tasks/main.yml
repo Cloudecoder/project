@@ -4,10 +4,10 @@
       - tomcat
       - tomcat-webapps
 
-    state: present
+    state: absent
 
-- name: starting tomcat server
-  systemd:
-    name: tomcat
-    state: started
-    enabled: yes
+#- name: starting tomcat server
+#  systemd:
+#    name: tomcat
+#    state: started
+#    enabled: yes
