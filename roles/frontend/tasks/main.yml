@@ -1,12 +1,10 @@
-- name : installing tomcat server
+- name: installing tomcat server
   yum:
-    - tomcat
-    - tomcat-webapps
-    - tomcat-admin-webapps
-    - tomcat-docs-webapp
-    - tomcat-javadoc
+    name:
+      - tomcat
+      - tomcat-webapps
 
-    state: latest
+    state: present
 
 - name: starting tomcat server
   systemd:
