@@ -17,7 +17,7 @@ provider "aws" {
 resource "null_resource" "ansible" {
   provisioner "remote-exec" {
     connection {
-      host            = aws_spot_instance_request.ec2.host_id
+      host            = aws_spot_instance_request.ec2.public_ip
       type            = "ssh"
       user            = "ec2-user"
       private_key     = local_file.key.filename
