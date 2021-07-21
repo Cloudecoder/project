@@ -4,12 +4,10 @@ resource "aws_instance" "ec2" {
   key_name               = "mykey"
   vpc_security_group_ids = ["sg-b63c1eb4"]
 
-}
+  tags = {
+    Name: "webserver"
+  }
 
-resource "aws_ec2_tag" "tag" {
-  key = "Name"
-  resource_id = [aws_instance.ec2.id]
-  value = "webserver"
 }
 
 resource "aws_vpc_endpoint" "ec2" {
