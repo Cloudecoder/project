@@ -74,5 +74,5 @@
 
 
 - name: docker run
-  shell: docker run -it --rm -p 8080:8080 fde888df3fa9
-
+  shell: docker container run -p 8080:8080 fde888df3fa9
+  become: yes
