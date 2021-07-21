@@ -36,7 +36,8 @@
 
 
 - name: Install Docker
-  shell: amazon-linux-extras install docker -y | bash
+  shell: amazon-linux-extras install docker -y
+  become: yes
 
 - name: Stating Docker service
   systemd:
