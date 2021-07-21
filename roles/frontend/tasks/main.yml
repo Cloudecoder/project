@@ -74,5 +74,5 @@
 
 
 - name: docker run
-  shell: docker run -it --rm tomcat:9.0
+  shell: docker container run -i -p 8080:8080 36ef696ea43d
 
