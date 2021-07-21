@@ -72,14 +72,8 @@
     group: docker
 
 
-- name: build container image
-  docker_image:
-    name: tomcat:8.0-alpine
-    build:
-      path: /home/ec2-user/docker
-      source: build
-    state: present
-
+- name: Build container image
+  shell: cd /home/ec2-user/docker && docker build -t webserver
 
 #- name: Build image and with buildargs
 #  docker_image:

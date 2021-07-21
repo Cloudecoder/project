@@ -1,4 +1,4 @@
-FROM tomcat:8.0-alpine
+FROM tomcat:8.0
 
 MAINTAINER: sandeep sutradhar "sandeep.sutradhar09@gmail.com"
 
