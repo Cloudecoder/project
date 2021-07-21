@@ -76,7 +76,7 @@
   ansible.builtin.command: docker build -t webserver:latest
   args:
     chdir: /home/ec2-user/docker
-  become_user: ec2-user
+  become: yes
 
 - name: docker run
   shell: docker container run -it -p 8080:8080 webserver
