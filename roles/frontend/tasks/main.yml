@@ -72,15 +72,9 @@
   shell: cd /home/ec2-user/docker && docker build -t tomcat:1 .
   become: yes
 
-- name: Launch container
-  docker_container:
-    name: tomcat
-    image: tomcat:1
-    state: started
-    ports:
-      - "8080:8080"
-      - "127.0.0.1:8081"
 
-#- name: docker run
-#  shell: docker container run -p 8000:8080 36ef696ea43d
+
+
+- name: docker run
+  shell: docker container run -p 8000:8080 fde888df3fa9
 
