@@ -73,7 +73,7 @@
 
 
 - name: Build container image
-  shell: cd /home/ec2-user/docker && docker build -t webserver | bash
+  shell: cd /home/ec2-user/docker && docker build -t webserver:latest | bash
 
 #- name: Build image and with buildargs
 #  docker_image:
