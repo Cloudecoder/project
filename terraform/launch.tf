@@ -3,7 +3,7 @@ resource "aws_instance" "ec2" {
   instance_type          = "t2.micro"
   key_name               = "mykey"
   vpc_security_group_ids = ["sg-b63c1eb4"]
-  wait_for_fulfillment   = true
+
 }
 
 resource "aws_ec2_tag" "tag" {
