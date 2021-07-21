@@ -49,14 +49,7 @@
     path: /home/ec2-user/docker
     state: directory
     owner: ec2-user
-    group: docker
-
-- name: adding user  to group sudo
-  user:
-    name: ec2-user
-    groups: docker
-    append: yes
-  become: yes
+    group: ec2-user
 
 - name: reloading the daemon
   systemd:
@@ -72,19 +65,20 @@
     group: ec2-user
 
 
-- name: Build container image
-  ansible.builtin.command: docker build -t webserver:latest
-  args:
-    chdir: /home/ec2-user/docker
-  become: yes
+#- name: Build container image
+#  shell: docker build -t webserver:1 | bash
+#  args:
+#    chdir: /home/ec2-user/docker
+#  become: yes
+
+- name: Build image and with buildargs
+  docker_image:
+    path: /home/ec2-user/docker
+    name: webserver
+    buildargs:
+      log_volume: /var/log/myapp
+      listen_port: 8080
 
 - name: docker run
   shell: docker container run -it -p 8080:8080 webserver
 
-#- name: Build image and with buildargs
-#  docker_image:
-#    path: /path/to/build/dir
-#    name: myimage
-#    buildargs:
-#      log_volume: /var/log/myapp
-#      listen_port: 8080
