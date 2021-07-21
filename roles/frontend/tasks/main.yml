@@ -36,13 +36,16 @@
 
 
 - name: Install Docker
-  shell: pip install 'docker==4.4.4' | bash
+  yum:
+    name: docker
+    state: latest
   become: yes
 
 - name: Stating Docker service
   systemd:
     name: docker
     state: started
+    enabled: yes
 
 - name: create directory for docker
   file:
