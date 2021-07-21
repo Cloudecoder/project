@@ -12,7 +12,7 @@
     name: MongoDB Repository
     description: mongodb
     baseurl: https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/
-    file: mongodb-org-4.4.repo
+    file: mongodb-org-4.4
     gpgcheck: yes
     enabled: yes
     gpgkey: https://www.mongodb.org/static/pgp/server-4.4.asc
