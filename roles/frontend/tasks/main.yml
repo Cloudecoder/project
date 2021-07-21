@@ -1,20 +1,21 @@
-#- name: adding repo
-#  yum_repository:
-#    name: MongoDB Repository
-#    description: mongodb.repo
-#    baseurl: https://repo.mongodb.org/yum/amazon/2/mongodb-org/5.0/x86_64/
-#    file: mongodb-org-5.0
-#    gpgcheck: yes
-#    enabled: yes
-#    gpgkey: https://www.mongodb.org/static/pgp/server-5.0.asc
-- name: Adding Mongodb repo
-  shell: echo"[mongodb-org-4.4]\n
-  name=MongoDB Repository\n
-  baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/\n
-  gpgcheck=1\n
-  enabled=1\n
-  gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc" >/etc/yum.repos.d/mongodb-org-4.4.repo
 
+#- name: Adding Mongodb repo
+#  shell: echo"[mongodb-org-4.4]\n
+#  name=MongoDB Repository\n
+#  baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/\n
+#  gpgcheck=1\n
+#  enabled=1\n
+#  gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc" >/etc/yum.repos.d/mongodb-org-4.4.repo
+
+- name: Adding repo
+  yum_repository:
+    name: MongoDB Repository
+    description: mongodb
+    baseurl: https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/
+    file: mongodb-org-4.4.repo
+    gpgcheck: yes
+    enabled: yes
+    gpgkey: https://www.mongodb.org/static/pgp/server-4.4.asc
 
 - name: Install MongoDB
   yum:
