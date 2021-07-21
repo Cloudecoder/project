@@ -1,5 +1,5 @@
-FROM tomcat:8.0
+FROM tomcat:9.0
 
-LABEL maintainer="sandeep_sutradhar"
+LABEL maintainer="sandeepdocker45"
 
 CMD ["catalina.sh","run"]
