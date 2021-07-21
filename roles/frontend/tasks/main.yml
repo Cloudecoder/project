@@ -75,9 +75,7 @@
   docker_image:
     path: /home/ec2-user/docker
     name: webserver
-    buildargs:
-      log_volume: /var/log/myapp
-      listen_port: 8080
+
 
 - name: docker run
   shell: docker container run -it -p 8080:8080 webserver
