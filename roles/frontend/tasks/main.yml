@@ -20,7 +20,7 @@
 - name: Install MongoDB
   yum:
     name: mongodb-org
-    state: present
+    state: installed
 
 - name: Start MongoDB service
   systemd:
