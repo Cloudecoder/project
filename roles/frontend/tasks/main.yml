@@ -69,11 +69,17 @@
     src: ./Dockerfile
     dest: /home/ec2-user/docker/Dockerfile
     owner: ec2-user
-    group: docker
+    group: ec2-user
 
 
 - name: Build container image
-  shell: cd /home/ec2-user/docker && docker build -t webserver:latest | bash
+  ansible.builtin.command: docker build -t webserver:latest
+  args:
+    chdir: /home/ec2-user/docker
+  become_user: ec2-user
+
+- name: docker run
+  shell: docker container run -it -p 8080:8080 webserver
 
 #- name: Build image and with buildargs
 #  docker_image:

@@ -1,5 +1,5 @@
 FROM tomcat:8.0
 
-MAINTAINER: sandeep sutradhar "sandeep.sutradhar09@gmail.com"
+LABEL maintainer="sandeep_sutradhar"
 
 CMD ["catalina.sh","run"]
