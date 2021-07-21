@@ -69,10 +69,10 @@
 
 
 - name: pull docker image
-  shell: cd /home/ec2-user/docker && docker build -t webserver .
+  shell: cd /home/ec2-user/docker && docker build -t tomcat:1 .
   become: yes
 
 
-- name: docker run
-  shell: docker container run -p 8000:8080 36ef696ea43d
+#- name: docker run
+#  shell: docker container run -p 8000:8080 36ef696ea43d
 
