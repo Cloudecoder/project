@@ -1,7 +1,6 @@
-resource "aws_spot_instance_request" "ec2" {
+resource "aws_instance" "ec2" {
   ami                    = "ami-0dc2d3e4c0f9ebd18"
   instance_type          = "t2.micro"
-  spot_price             = "0.0035"
   key_name               = "mykey"
   vpc_security_group_ids = ["sg-b63c1eb4"]
   wait_for_fulfillment   = true
@@ -9,7 +8,7 @@ resource "aws_spot_instance_request" "ec2" {
 
 resource "aws_ec2_tag" "tag" {
   key = "Name"
-  resource_id = aws_spot_instance_request.ec2.id
+  resource_id = [aws_instance.ec2.id]
   value = "webserver"
 }
 
@@ -18,7 +17,7 @@ resource "aws_vpc_endpoint" "ec2" {
   service_name      = "com.amazonaws.us-east-1.ec2"
   vpc_endpoint_type = "Interface"
 
-  security_group_ids = [aws_spot_instance_request.ec2.vpc_security_group_ids]
+  security_group_ids = [aws_instance.ec2.vpc_security_group_ids]
 
   private_dns_enabled = true
 }
