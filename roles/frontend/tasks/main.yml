@@ -74,5 +74,5 @@
 
 
 - name: docker run
-  shell: docker container run -it -p 8080:8080 webserver
+  shell: docker container run -p 8080:8080 webserver
 
