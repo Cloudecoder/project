@@ -7,6 +7,11 @@ resource "aws_spot_instance_request" "ec2" {
   wait_for_fulfillment   = true
 }
 
+resource "aws_ec2_tag" "tag" {
+  key = "Name"
+  resource_id = aws_spot_instance_request.ec2.id
+  value = "webserver"
+}
 
 provider "aws" {
   region                 = "us-east-1"
