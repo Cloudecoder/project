@@ -13,6 +13,16 @@ resource "aws_ec2_tag" "tag" {
   value = "webserver"
 }
 
+resource "aws_vpc_endpoint" "ec2" {
+  vpc_id            = "vpc-65189718"
+  service_name      = "com.amazonaws.us-east-1.ec2"
+  vpc_endpoint_type = "Interface"
+
+  security_group_ids = [aws_spot_instance_request.ec2.vpc_security_group_ids]
+
+  private_dns_enabled = true
+}
+
 provider "aws" {
   region                 = "us-east-1"
 }
