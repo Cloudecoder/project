@@ -1,29 +1,24 @@
-#- name: Adding mongoDB repositories
+#- name: adding repo
 #  yum_repository:
 #    name: MongoDB Repository
-#    description: EPEL YUM repo
-#    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
-#    file: mongodb.repo
+#    description: mongodb.repo
+#    baseurl: https://repo.mongodb.org/yum/amazon/2/mongodb-org/5.0/x86_64/
+#    file: mongodb-org-5.0
 #    gpgcheck: yes
 #    enabled: yes
-#    gpgkey: https://www.mongodb.org/static/pgp/server-4.2.asc
+#    gpgkey: https://www.mongodb.org/static/pgp/server-5.0.asc
+- name: Adding Mongodb repo
+  shell: echo"[mongodb-org-4.4]
+  name=MongoDB Repository
+  baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/
+  gpgcheck=1
+  enabled=1
+  gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc" >/etc/yum.repos.d/mongodb-org-4.4.repo
 
-- name: adding repo
-  yum_repository:
-    name: MongoDB Repository
-    description: mongodb.repo
-    baseurl: https://repo.mongodb.org/yum/amazon/2/mongodb-org/5.0/x86_64/
-    file: mongodb-org-5.0
-    gpgcheck: yes
-    enabled: yes
-    gpgkey: https://www.mongodb.org/static/pgp/server-5.0.asc
 
 - name: Install MongoDB
   yum:
-    name:
-      - mongodb-org-5.0.0
-      - mongodb-org-database-5.0.0
-      - mongodb-org-server-5.0.0
+    name: mongodb-org
     state: present
 
 - name: Start MongoDB service
