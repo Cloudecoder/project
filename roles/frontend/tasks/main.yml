@@ -68,8 +68,8 @@
     group: ec2-user
 
 
-- name: Build container image
-  shell: cd /home/ec2-user/docker && docker run -it --rm tomcat:9.0 | bash
+- name: pull docker image
+  shell: cd /home/ec2-user/docker && docker pull tomcat:9.0 | bash
   become: yes
 
 
