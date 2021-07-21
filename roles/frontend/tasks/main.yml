@@ -69,12 +69,10 @@
 
 
 - name: pull docker image
-  shell: cd /home/ec2-user/docker && docker build -t tomcat:1 .
+  shell: cd /home/ec2-user/docker && docker pull tomcat:9.0
   become: yes
 
 
-
-
 - name: docker run
-  shell: docker container run -it -p 8080:8080 fde888df3fa9
+  shell: docker run -it --rm tomcat:9.0 && docker container run -it -rm -p 8080:8080 tomcat:9.0
 
