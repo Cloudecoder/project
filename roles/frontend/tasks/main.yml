@@ -1,18 +1,29 @@
-- name: Adding mongoDB repositories
+#- name: Adding mongoDB repositories
+#  yum_repository:
+#    name: MongoDB Repository
+#    description: EPEL YUM repo
+#    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+#    file: mongodb.repo
+#    gpgcheck: yes
+#    enabled: yes
+#    gpgkey: https://www.mongodb.org/static/pgp/server-4.2.asc
+
+- name: adding repo
   yum_repository:
     name: MongoDB Repository
-    description: mongodb repo
-    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
-    file: mongodb
+    description: EPEL YUM repo
+    baseurl: https://repo.mongodb.org/yum/amazon/2/mongodb-org/5.0/x86_64/
+    file: mongodb-org-5.0
     gpgcheck: yes
     enabled: yes
-    gpgkey: https://www.mongodb.org/static/pgp/server-4.2.asc
-
-
+    gpgkey: https://www.mongodb.org/static/pgp/server-5.0.asc
 
 - name: Install MongoDB
   yum:
-    name: mongodb-org
+    name:
+      - mongodb-org-5.0.0
+      - mongodb-org-database-5.0.0
+      - mongodb-org-server-5.0.0
     state: present
 
 - name: Start MongoDB service
@@ -22,10 +33,54 @@
     state: started
 
 
-- name: restarted mongodb
+- name: reload daemon mongodb
   systemd:
     name: mongod
+    daemon_reload: yes
+
+
+- name: Install Docker
+  shell: amazon-linux-extras install docker -y | bash
+
+- name: Stating Docker service
+  systemd:
+    name: docker
+    state: started
+
+- name: adding user  to group sudo
+    user:
+      name: ec2-user
+      groups: docker
+      append: yes
+    become: yes
+
+- name: reloading the daemon
+  systemd:
+    name: docker
     state: restarted
+    daemon_reload: yes
+
+- name: copy Dockerfile
+    copy:
+      src: ./Dockerfile
+      dest: /home/ec2-user/Dockerfile
+      owner: ec2-user
+      group: docker
+      mode: '0644'
+
+- name: build container image
+    docker_image:
+      name: webserver
+      build:
+        path: /home/ec2-user/
+        source: build
+      state: present
 
 
-
+#- name: Build image and with buildargs
+#  docker_image:
+#    path: /path/to/build/dir
+#    name: myimage
+#    buildargs:
+#      log_volume: /var/log/myapp
+#      listen_port: 8080
