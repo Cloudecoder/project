@@ -36,7 +36,7 @@
 
 
 - name: Install Docker
-  shell: amazon-linux-extras install docker -y
+  shell: pip install docker==4.4.4
   become: yes
 
 - name: Stating Docker service
@@ -65,16 +65,11 @@
     group: ec2-user
 
 
-#- name: Build container image
-#  shell: docker build -t webserver:1 | bash
-#  args:
-#    chdir: /home/ec2-user/docker
-#  become: yes
-
-- name: Build image and with buildargs
-  docker_image:
-    path: /home/ec2-user/docker
-    name: webserver
+- name: Build container image
+  shell: docker build -t webserver:1 | bash
+  args:
+    chdir: /home/ec2-user/docker
+  become: yes
 
 
 - name: docker run
