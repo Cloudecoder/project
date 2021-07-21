@@ -8,11 +8,11 @@
 #    enabled: yes
 #    gpgkey: https://www.mongodb.org/static/pgp/server-5.0.asc
 - name: Adding Mongodb repo
-  shell: echo"[mongodb-org-4.4]
-  name=MongoDB Repository
-  baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/
-  gpgcheck=1
-  enabled=1
+  shell: echo"[mongodb-org-4.4]\n
+  name=MongoDB Repository\n
+  baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/\n
+  gpgcheck=1\n
+  enabled=1\n
   gpgkey=https://www.mongodb.org/static/pgp/server-4.4.asc" >/etc/yum.repos.d/mongodb-org-4.4.repo
 
 
