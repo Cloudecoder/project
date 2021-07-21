@@ -69,7 +69,7 @@
 
 
 - name: pull docker image
-  shell: cd /home/ec2-user/docker && docker built -t webserver .
+  shell: cd /home/ec2-user/docker && docker build -t webserver .
   become: yes
 
 
