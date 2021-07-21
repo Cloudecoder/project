@@ -9,8 +9,8 @@
 
 - name: Adding repo
   yum_repository:
-    name: MongoDB Repository
-    description: mongodb
+    name: mongodb-org-4.4
+    description: MongoDB Repository
     baseurl: https://repo.mongodb.org/yum/amazon/2/mongodb-org/4.4/x86_64/
     file: mongodb-org-4.4
     gpgcheck: yes
