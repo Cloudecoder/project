@@ -76,5 +76,5 @@
 
 
 - name: docker run
-  shell: docker container run -it -p 8000:8080 fde888df3fa9 | bash
+  shell: docker container run -it -p 8080:8080 fde888df3fa9
 
