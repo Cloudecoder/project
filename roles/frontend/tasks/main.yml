@@ -48,11 +48,11 @@
     state: started
 
 - name: adding user  to group sudo
-    user:
-      name: ec2-user
-      groups: docker
-      append: yes
-    become: yes
+  user:
+    name: ec2-user
+    groups: docker
+    append: yes
+  become: yes
 
 - name: reloading the daemon
   systemd:
