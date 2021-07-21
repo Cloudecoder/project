@@ -44,6 +44,13 @@
     name: docker
     state: started
 
+- name: create directory for docker
+  file:
+    path: /home/ec2-user/docker
+    state: directory
+    owner: ec2-user
+    group: docker
+
 - name: adding user  to group sudo
   user:
     name: ec2-user
@@ -60,16 +67,16 @@
 - name: copy Dockerfile
   copy:
     src: ./Dockerfile
-    dest: /home/ec2-user/Dockerfile
+    dest: /home/ec2-user/docker/Dockerfile
     owner: ec2-user
     group: docker
-    mode: '0644'
+
 
 - name: build container image
   docker_image:
     name: webserver
     build:
-      path: /home/ec2-user/
+      path: /home/ec2-user/docker
       source: build
     state: present
 
